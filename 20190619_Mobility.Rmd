@@ -1,0 +1,49 @@
+---
+title: "20200619 Mobility"
+output: html_document
+---
+
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(readxl)
+library(tidyverse)
+library(ggrepel)
+setwd("~/Documents/GitHub/mobility")
+```
+
+# Importing data
+```{r}
+apple <- read_csv("applemobilitytrends-2020-06-22.csv") %>% filter(region == "India" | country == "India")
+google <- read_csv("Google_Global_Mobility_Report.csv") %>% filter(country_region == "India")
+```
+
+## Reshape Apple data
+```{r}
+apple <- apple %>% pivot_longer(cols = c(7:length(apple)), names_to = "date")
+apple$date <- as.Date(apple$date)
+```
+
+## Divide into national, state, and city
+```{r}
+apple_national <- apple %>% filter(region == "India")
+apple_city <- apple %>% filter(region != "India")
+
+google_national <- google %>% filter(is.na(sub_region_1))
+google_state <- google %>% filter(!is.na(sub_region_1))
+
+```
+
+# Visualizations
+
+## City-level change in Apple data over time
+
+```{r}
+apple_city %>% filter(transportation_type == "driving") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light()
+apple_city %>% filter(transportation_type == "walking") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light()
+```
+
+
+
+## State-level change in Google data over time
+
