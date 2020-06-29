@@ -11,7 +11,18 @@ library(ggrepel)
 setwd("~/Documents/GitHub/mobility")
 ```
 
+#Import
 ```{r}
+national_google <- read_csv("national_google.csv")
+national_apple <- read_csv("national_apple.csv")
+state <- read_csv("state.csv")
+city <- read_csv("city.csv")
+```
+
+
+```{r}
+city %>% ggplot() + 
 
 ```
+
 
