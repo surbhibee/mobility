@@ -105,8 +105,9 @@ write_csv(state, "state.csv")
 ```{r}
 apple_city <- pivot_wider(apple_city, id_cols = c(date, region), names_from = transportation_type, values_from = value)
 city <- inner_join(apple_city, district_cases, by = c("date" = "Date Announced", "region" = "Detected District"))
-write_csv(city, "city.csv")
 
+names(city)[names(city) == "Hospitalized"] = "Cases"
+write_csv(city, "city.csv")
 ```
 
 
