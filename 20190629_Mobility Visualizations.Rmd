@@ -1,0 +1,17 @@
+---
+title: "20190629_Mobility Visualizations"
+output: html_document
+---
+```{r}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(readxl)
+library(tidyverse)
+library(ggrepel)
+setwd("~/Documents/GitHub/mobility")
+```
+
+```{r}
+
+```
+

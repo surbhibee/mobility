@@ -33,21 +33,80 @@ google_national <- google %>% filter(is.na(sub_region_1))
 google_state <- google %>% filter(!is.na(sub_region_1))
 ```
 
-# Visualizations
+# Fetch COVID data 
 
-## City-level change in Apple data over time
+## National
+```{r}
+national_cases <- read_csv("https://api.covid19india.org/csv/latest/case_time_series.csv")
+national_cases$Date <- paste(national_cases$Date, " 2020")
+national_cases$Date <- as.Date(national_cases$Date, "%d %B %Y")
+```
+## State level
+```{r}
+state_cases <- read_csv("https://api.covid19india.org/csv/latest/state_wise_daily.csv")
+state_cases$Date <- as.Date(state_cases$Date, "%d-%b-%y")
+state_cases <- pivot_longer(state_cases, cols = c(3:41) , names_to = "State")
+state_cases <- pivot_wider(state_cases, id_cols = c(Date, State), names_from = "Status", values_from = "value")
+```
+
+## District level
+```{r}
+dist1 <- read_csv("https://api.covid19india.org/csv/latest/raw_data1.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+dist2 <- read_csv("https://api.covid19india.org/csv/latest/raw_data2.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+dist3 <- read_csv("https://api.covid19india.org/csv/latest/raw_data3.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+dist4 <- read_csv("https://api.covid19india.org/csv/latest/raw_data4.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+dist5 <- read_csv("https://api.covid19india.org/csv/latest/raw_data5.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+dist6 <- read_csv("https://api.covid19india.org/csv/latest/raw_data6.csv") %>% filter(`Detected State` == "Delhi" | `Detected District` == "Mumbai" | `Detected District` == "Pune" | `Detected District` == "Hyderabad" | `Detected District` == "Bengaluru Urban" | `Detected District` == "Chennai")
+```
 
 ```{r}
-apple_city %>% filter(transportation_type == "driving") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light() + ggtitle("Changes in driving in cities")
-ggsave("apple_driving.png")
-apple_city %>% filter(transportation_type == "driving") %>% write.csv("apple_driving.csv")
+raw1 <- rbind(dist1, dist2) %>% select(`Date Announced`, `Detected District`, `Detected State`, `Num cases`, `Current Status`)
+raw2 <- rbind(dist3, dist4, dist5, dist6)  %>% select(`Date Announced`, `Detected District`, `Detected State`, `Num Cases`, `Current Status`)
+names(raw1)[names(raw1) == "Num cases"] <- "Num Cases"
 
-apple_city %>% filter(transportation_type == "walking") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light() + ggtitle("Changes in walking in cities")
-apple_city %>% filter(transportation_type == "walking") %>% write.csv("apple_walking.csv")
-ggsave("apple_walking.png")
+district_cases <- rbind(raw1, raw2)
 ```
 
 
+```{r}
+district_cases$`Detected District` <-  ifelse(district_cases$`Detected State` == "Delhi", "Delhi", district_cases$`Detected State`)
+```
 
-## State-level change in Google data over time
+```{r}
+remove(dist1, dist2, dist3, dist4, dist5, dist6, raw1, raw2)
+```
+
+## Collapse district data to daily values and reshape
+```{r}
+district_cases <- district_cases %>% group_by(`Detected District`, `Detected State`, `Date Announced`, `Current Status`) %>% summarize(value = sum(`Num Cases`))
+district_cases$`Date Announced` <- as.Date(district_cases$`Date Announced`, "%d/%m/%Y")
+district_cases <- pivot_wider(district_cases, id_cols = c(`Date Announced`, `Detected District`, `Detected State`), names_from = `Current Status`, values_from = value)
+```
+
+# Merge COVID data
+
+## national
+```{r}
+final_national_google <- inner_join(google_national, national_cases, by = c("date" = "Date"))
+write_csv(final_national_google, "national_google.csv")
+final_national_apple <- inner_join(apple_national, national_cases, by = c("date" = "Date"))
+write_csv(final_national_apple, "national_apple.csv")
+```
+
+## state
+```{r}
+google_state$state <- substr(google_state$iso_3166_2_code, 4,5)
+state <- inner_join(google_state, state_cases, by = c("date" = "Date", "state" = "State"))
+write_csv(state, "state.csv")
+
+```
+
+## district
+```{r}
+apple_city <- pivot_wider(apple_city, id_cols = c(date, region), names_from = transportation_type, values_from = value)
+city <- inner_join(apple_city, district_cases, by = c("date" = "Date Announced", "region" = "Detected District"))
+write_csv(city, "city.csv")
+
+```
+
 
