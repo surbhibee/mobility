@@ -14,7 +14,7 @@ setwd("~/Documents/GitHub/mobility")
 
 # Importing data
 ```{r}
-apple <- read_csv("applemobilitytrends-2020-06-22.csv") %>% filter(region == "India" | country == "India")
+apple <- read_csv("applemobilitytrends-2020-06-27.csv") %>% filter(region == "India" | country == "India")
 google <- read_csv("Google_Global_Mobility_Report.csv") %>% filter(country_region == "India")
 ```
 
@@ -31,7 +31,6 @@ apple_city <- apple %>% filter(region != "India")
 
 google_national <- google %>% filter(is.na(sub_region_1))
 google_state <- google %>% filter(!is.na(sub_region_1))
-
 ```
 
 # Visualizations
@@ -39,8 +38,13 @@ google_state <- google %>% filter(!is.na(sub_region_1))
 ## City-level change in Apple data over time
 
 ```{r}
-apple_city %>% filter(transportation_type == "driving") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light()
-apple_city %>% filter(transportation_type == "walking") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light()
+apple_city %>% filter(transportation_type == "driving") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light() + ggtitle("Changes in driving in cities")
+ggsave("apple_driving.png")
+apple_city %>% filter(transportation_type == "driving") %>% write.csv("apple_driving.csv")
+
+apple_city %>% filter(transportation_type == "walking") %>% ggplot( aes(x = date, y = value, color = region )) + geom_smooth(alpha = 0.2) + theme_light() + ggtitle("Changes in walking in cities")
+apple_city %>% filter(transportation_type == "walking") %>% write.csv("apple_walking.csv")
+ggsave("apple_walking.png")
 ```
 
 
