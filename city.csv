@@ -1,4 +1,4 @@
-date,region,driving,walking,Detected State,Cases,Recovered,Deceased,Migrated_Other,Migrated
+date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Other,Migrated
 2020-03-09,Bangalore,96.03,99.59,Karnataka,NA,1,NA,NA,NA
 2020-03-10,Bangalore,94.67,96.15,Karnataka,NA,3,NA,NA,NA
 2020-03-12,Bangalore,89.2,88.41,Karnataka,NA,1,NA,NA,NA

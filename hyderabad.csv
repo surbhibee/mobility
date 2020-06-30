@@ -1,4 +1,4 @@
-"","date","region","driving","walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
+"","date","region","Driving","Walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
 "1",2020-03-02,"Hyderabad",130.55,135.33,"Telangana",NA,1,NA,NA,NA
 "2",2020-03-14,"Hyderabad",146.27,138.48,"Telangana",1,NA,NA,NA,NA
 "3",2020-03-15,"Hyderabad",123.59,122.62,"Telangana",1,NA,NA,NA,NA

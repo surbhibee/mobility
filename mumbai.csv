@@ -1,4 +1,4 @@
-"","date","region","driving","walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
+"","date","region","Driving","Walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
 "1",2020-03-11,"Mumbai",90.24,84.39,"Maharashtra",2,NA,NA,NA,NA
 "2",2020-03-12,"Mumbai",89.62,86.39,"Maharashtra",1,NA,1,NA,NA
 "3",2020-03-14,"Mumbai",80.27,75.45,"Maharashtra",1,NA,NA,NA,NA

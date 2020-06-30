@@ -1,4 +1,4 @@
-"","date","region","driving","walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
+"","date","region","Driving","Walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
 "1",2020-03-02,"Delhi",107.84,102.76,"Delhi",NA,1,NA,NA,NA
 "2",2020-03-05,"Delhi",105.06,96.66,"Delhi",1,NA,NA,NA,NA
 "3",2020-03-06,"Delhi",124.69,101.87,"Delhi",NA,1,NA,NA,NA

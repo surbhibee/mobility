@@ -1,4 +1,4 @@
-"","date","region","driving","walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
+"","date","region","Driving","Walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
 "1",2020-03-09,"Pune",92.39,87.65,"Maharashtra",NA,2,NA,NA,NA
 "2",2020-03-10,"Pune",89.92,88.55,"Maharashtra",3,NA,NA,NA,NA
 "3",2020-03-11,"Pune",92.21,93.23,"Maharashtra",3,NA,NA,NA,NA

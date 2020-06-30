@@ -1,4 +1,4 @@
-"","date","region","driving","walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
+"","date","region","Driving","Walking","Detected State","Cases","Recovered","Deceased","Migrated_Other","Migrated"
 "1",2020-03-18,"Chennai",77.12,78.52,"Tamil Nadu",1,NA,NA,NA,NA
 "2",2020-03-19,"Chennai",67.75,67.98,"Tamil Nadu",NA,1,NA,NA,NA
 "3",2020-03-21,"Chennai",43.89,42.06,"Tamil Nadu",1,NA,NA,NA,NA
