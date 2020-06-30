@@ -1,9 +1,4 @@
 date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Other,Migrated
-2020-03-09,Bangalore,96.03,99.59,Karnataka,NA,1,NA,NA,NA
-2020-03-10,Bangalore,94.67,96.15,Karnataka,NA,3,NA,NA,NA
-2020-03-12,Bangalore,89.2,88.41,Karnataka,NA,1,NA,NA,NA
-2020-03-17,Bangalore,69.54,77.96,Karnataka,NA,3,NA,NA,NA
-2020-03-18,Bangalore,65.69,70.34,Karnataka,NA,3,NA,NA,NA
 2020-03-21,Bangalore,42.64,39.98,Karnataka,2,1,NA,NA,NA
 2020-03-22,Bangalore,32.24,31.46,Karnataka,NA,3,NA,NA,NA
 2020-03-23,Bangalore,40.94,35.27,Karnataka,2,3,NA,NA,NA
@@ -84,8 +79,6 @@ date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Oth
 2020-06-17,Bangalore,55.14,53.63,Karnataka,55,9,5,NA,NA
 2020-06-18,Bangalore,58.22,55.8,Karnataka,17,14,8,NA,NA
 2020-06-19,Bangalore,63.36,59.28,Karnataka,138,8,7,NA,NA
-2020-03-18,Chennai,77.12,78.52,Tamil Nadu,1,NA,NA,NA,NA
-2020-03-19,Chennai,67.75,67.98,Tamil Nadu,NA,1,NA,NA,NA
 2020-03-21,Chennai,43.89,42.06,Tamil Nadu,1,NA,NA,NA,NA
 2020-03-22,Chennai,31.34,31.44,Tamil Nadu,1,NA,NA,NA,NA
 2020-03-23,Chennai,50.44,45.27,Tamil Nadu,1,NA,NA,NA,NA
@@ -176,17 +169,6 @@ date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Oth
 2020-06-17,Chennai,45.79,58.27,Tamil Nadu,1311,462,39,NA,NA
 2020-06-18,Chennai,33.39,53.42,Tamil Nadu,1514,659,40,NA,NA
 2020-06-19,Chennai,18.57,33.5,Tamil Nadu,1257,1412,28,NA,NA
-2020-03-02,Delhi,107.84,102.76,Delhi,NA,1,NA,NA,NA
-2020-03-05,Delhi,105.06,96.66,Delhi,1,NA,NA,NA,NA
-2020-03-06,Delhi,124.69,101.87,Delhi,NA,1,NA,NA,NA
-2020-03-09,Delhi,63.56,61.15,Delhi,1,NA,NA,NA,NA
-2020-03-11,Delhi,89.08,91.64,Delhi,1,NA,NA,NA,NA
-2020-03-12,Delhi,94.7,85.35,Delhi,NA,NA,1,NA,NA
-2020-03-13,Delhi,89.47,87.47,Delhi,1,NA,NA,NA,NA
-2020-03-17,Delhi,75.88,75.62,Delhi,2,NA,NA,NA,1
-2020-03-18,Delhi,71.54,69.26,Delhi,1,NA,NA,NA,NA
-2020-03-19,Delhi,62.34,61.18,Delhi,3,NA,NA,NA,NA
-2020-03-20,Delhi,54.43,46.91,Delhi,6,NA,NA,NA,NA
 2020-03-21,Delhi,33.68,33.69,Delhi,7,NA,NA,NA,NA
 2020-03-22,Delhi,24.43,25.99,Delhi,1,NA,NA,NA,NA
 2020-03-23,Delhi,21.75,25.6,Delhi,2,NA,NA,NA,NA
@@ -277,14 +259,6 @@ date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Oth
 2020-06-17,Delhi,41.66,36.34,Delhi,2414,957,67,NA,NA
 2020-06-18,Delhi,39.89,34.38,Delhi,2877,3884,65,NA,NA
 2020-06-19,Delhi,40.94,36.61,Delhi,3137,2228,66,NA,NA
-2020-03-02,Hyderabad,130.55,135.33,Telangana,NA,1,NA,NA,NA
-2020-03-14,Hyderabad,146.27,138.48,Telangana,1,NA,NA,NA,NA
-2020-03-15,Hyderabad,123.59,122.62,Telangana,1,NA,NA,NA,NA
-2020-03-16,Hyderabad,109.13,108.08,Telangana,1,NA,NA,NA,NA
-2020-03-17,Hyderabad,104.78,107.42,Telangana,1,NA,NA,NA,NA
-2020-03-18,Hyderabad,106.28,104.57,Telangana,8,NA,NA,NA,NA
-2020-03-19,Hyderabad,91.28,88.48,Telangana,3,NA,NA,NA,NA
-2020-03-20,Hyderabad,80.7,80.05,Telangana,1,NA,NA,NA,NA
 2020-03-21,Hyderabad,59.61,61.28,Telangana,2,NA,NA,NA,NA
 2020-03-22,Hyderabad,35.48,34.62,Telangana,5,NA,NA,NA,NA
 2020-03-23,Hyderabad,43.71,43.65,Telangana,5,NA,NA,NA,NA
@@ -366,14 +340,6 @@ date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Oth
 2020-06-17,Hyderabad,68.27,68.65,Telangana,214,NA,NA,NA,NA
 2020-06-18,Hyderabad,65.99,72.33,Telangana,302,NA,NA,NA,NA
 2020-06-19,Hyderabad,70.2,77.73,Telangana,329,NA,NA,NA,NA
-2020-03-11,Mumbai,90.24,84.39,Maharashtra,2,NA,NA,NA,NA
-2020-03-12,Mumbai,89.62,86.39,Maharashtra,1,NA,1,NA,NA
-2020-03-14,Mumbai,80.27,75.45,Maharashtra,1,NA,NA,NA,NA
-2020-03-16,Mumbai,69.99,65.05,Maharashtra,1,NA,NA,NA,NA
-2020-03-17,Mumbai,61.47,58.78,Maharashtra,1,NA,NA,NA,NA
-2020-03-18,Mumbai,58.58,55.71,Maharashtra,1,NA,NA,NA,NA
-2020-03-19,Mumbai,49.95,45.54,Maharashtra,1,NA,NA,NA,NA
-2020-03-20,Mumbai,41.17,33.72,Maharashtra,2,NA,NA,NA,NA
 2020-03-21,Mumbai,24.65,21.08,Maharashtra,7,NA,1,NA,NA
 2020-03-22,Mumbai,21.48,16.7,Maharashtra,5,NA,NA,NA,NA
 2020-03-23,Mumbai,21.03,16.76,Maharashtra,11,NA,NA,NA,NA
@@ -465,16 +431,6 @@ date,region,Driving,Walking,Detected State,Cases,Recovered,Deceased,Migrated_Oth
 2020-06-17,Mumbai,33.81,29.38,Maharashtra,1359,297,77,NA,NA
 2020-06-18,Mumbai,32.84,25,Maharashtra,1288,518,67,NA,NA
 2020-06-19,Mumbai,34.53,32.9,Maharashtra,1264,408,114,NA,NA
-2020-03-09,Pune,92.39,87.65,Maharashtra,NA,2,NA,NA,NA
-2020-03-10,Pune,89.92,88.55,Maharashtra,3,NA,NA,NA,NA
-2020-03-11,Pune,92.21,93.23,Maharashtra,3,NA,NA,NA,NA
-2020-03-12,Pune,86.88,89.34,Maharashtra,1,NA,NA,NA,NA
-2020-03-13,Pune,89.98,88.05,Maharashtra,1,NA,NA,NA,NA
-2020-03-15,Pune,82.31,82.97,Maharashtra,5,NA,NA,NA,NA
-2020-03-16,Pune,70.27,74.1,Maharashtra,1,NA,NA,NA,NA
-2020-03-17,Pune,55.63,52.29,Maharashtra,1,NA,NA,NA,NA
-2020-03-18,Pune,52.63,51.79,Maharashtra,2,NA,NA,NA,NA
-2020-03-20,Pune,42.74,40.34,Maharashtra,2,NA,NA,NA,NA
 2020-03-21,Pune,24.61,20.72,Maharashtra,2,NA,NA,NA,NA
 2020-03-22,Pune,19.12,18.03,Maharashtra,4,NA,NA,NA,NA
 2020-03-23,Pune,20.05,21.91,Maharashtra,1,NA,NA,NA,NA
