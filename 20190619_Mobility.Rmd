@@ -110,6 +110,8 @@ city <- inner_join(apple_city, district_cases, by = c("date" = "Date Announced",
 names(city)[names(city) == "Hospitalized"] = "Cases"
 names(city)[names(city) == "driving"] = "Driving"
 names(city)[names(city) == "walking"] = "Walking"
+
+city <- city %>% filter(date > "2020-03-20")
 write_csv(city, "city.csv")
 
 city %>% filter(region == "Delhi") %>% write.csv("delhi.csv")
