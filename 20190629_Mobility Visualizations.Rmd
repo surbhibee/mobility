@@ -21,7 +21,8 @@ city <- read_csv("city.csv")
 
 
 ```{r}
-city %>% ggplot(aes(x = date))  + geom_line(aes(y = driving), color = "red") + geom_line(aes(y = Cases), color = "black") + sec_axis() + facet_wrap(~region)
+state %>% filter(State) %>% ggplot(aes(x = Date))  + geom_line(aes(y = `Residential`, color = State))
++ facet_wrap(~region)
 ```
 
 

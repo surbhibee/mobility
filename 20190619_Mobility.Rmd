@@ -88,6 +88,9 @@ district_cases <- pivot_wider(district_cases, id_cols = c(`Date Announced`, `Det
 ## national
 ```{r}
 final_national_google <- inner_join(google_national, national_cases, by = c("date" = "Date"))
+final_national_google <- final_national_google %>% filter(date > "2020-03-20") %>% select(date, ends_with("baseline"), starts_with("Daily"))
+names(final_national_google) <- c("Date", "Retail and Recreation", "Grocery and Pharmacy", "Parks", "Transit", "Workplaces", "Residential"    , "Daily Confirmed"    , "Daily Recovered"    , "Daily Deceased"    )
+
 write_csv(final_national_google, "national_google.csv")
 final_national_apple <- inner_join(apple_national, national_cases, by = c("date" = "Date"))
 write_csv(final_national_apple, "national_apple.csv")
@@ -97,9 +100,24 @@ write_csv(final_national_apple, "national_apple.csv")
 ```{r}
 google_state$state <- substr(google_state$iso_3166_2_code, 4,5)
 state <- inner_join(google_state, state_cases, by = c("date" = "Date", "state" = "State"))
-write_csv(state, "state.csv")
 
+names(state) 
+state <- state %>% filter(date > "2020-03-20") %>% select(sub_region_1, date, ends_with("baseline"), starts_with("Daily"), Confirmed, Recovered, Deceased)
+
+names(state) <- c("State", "Date", "Retail and Recreation", "Grocery and Pharmacy", "Parks", "Transit", "Workplaces", "Residential"    , "Confirmed"    , "Recovered"    , "Deceased"    )
+
+state %>% select(State, Date, `Retail and Recreation`) %>% pivot_wider(names_from = State, values_from = `Retail and Recreation`) %>% write_csv("retail.csv")
+state %>% select(State, Date, `Grocery and Pharmacy`) %>% pivot_wider(names_from = State, values_from = `Grocery and Pharmacy`) %>% write_csv("grocery.csv")
+state %>% select(State, Date, `Parks`) %>% pivot_wider(names_from = State, values_from = `Parks`) %>% write_csv("parks.csv")
+state %>% select(State, Date, `Transit`) %>% pivot_wider(names_from = State, values_from = `Transit`) %>% write_csv("transit.csv")
+state %>% select(State, Date, `Workplaces`) %>% pivot_wider(names_from = State, values_from = `Workplaces`) %>% write_csv("workplaces.csv")
+state %>% select(State, Date, `Residential`) %>% pivot_wider(names_from = State, values_from = `Residential`) %>% write_csv("residential.csv")
+state %>% select(State, Date, `Confirmed`) %>% pivot_wider(names_from = State, values_from = `Confirmed`) %>% write_csv("state_cases.csv")
+
+write_csv(state, "state.csv")
 ```
+
+### pivot and write 6 files for the 6 kinds of data
 
 ## district
 ```{r}
