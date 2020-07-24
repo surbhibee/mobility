@@ -1,0 +1,43 @@
+---
+title: "20200724 Data Patterns"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(readxl)
+library(tidyverse)
+library(ggraph)
+library(igraph)
+library(ggrepel)
+setwd("~/Documents/GitHub/mobility")
+```
+
+```{r}
+cases <- read.csv("https://api.covid19india.org/csv/latest/states.csv")
+test <- read.csv("https://api.covid19india.org/csv/latest/statewise_tested_numbers_data.csv")
+```
+
+```{r}
+cases$Date <- as.Date(cases$Date)
+test$Date <- as.Date(test$Updated.On, "%d/%m/%Y")
+```
+
+# Creating daily variables for both 
+```{r}
+cases <- cases %>% arrange(State, Date) %>% group_by(State) %>% mutate(cases_daily = Confirmed - lag(Confirmed), tested_daily = Tested - lag(Tested))
+```
+
+
+
+```{r}
+graph <- cases %>% filter(State == "Maharashtra" | State == "Tamil Nadu" | State == "Delhi" | State == "Karnataka" | State == "Andhra Pradesh" | State == "Uttar Pradesh" | State == "Gujarat" | State == "West Bengal" | State == "Telangana" )
+write_csv(graph, "main_states.csv")
+```
+
+
+```{r}
+graph %>% filter(Date >= "2020-06-01") %>% ggplot() + geom_line(aes(x = Date, y = cases_daily), alpha = 0.4, fill = "#9c261e", color = "#9c261e", size = 0.5) + geom_line(aes(x = Date, y = tested_daily*(1/4)), alpha = 0.4, fill = "#9c261e", color = "#63b877", size = 0.5) + facet_wrap(~State, scales = "free") + theme_minimal() + theme(axis.text.x  =  element_text(size = 5), axis.text.y  = element_text(size = 5),  panel.grid =  element_blank(), axis.title.x = element_blank(), strip.text = element_text(size = 6))
+```
+
